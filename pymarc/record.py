@@ -444,6 +444,27 @@ class Record(Iterator):
             pass
         return None
 
+
+    def lcc_controlnumber(self):
+        """
+        Returns the Library of Congress Classification (LCC)
+        Control Number of the record. 
+        """
+        
+        if self['010']:
+            return self['010'].format_field()
+        return None
+        
+    def lcc_callnumber(self):
+        """
+        Returns the Library of Congress Classification (LCC)
+        Call Number of the record.
+        """
+        
+        if self['050']:
+            return self['050'].format_field()
+        return None
+        
     def author(self):
         if self['100']:
             return self['100'].format_field()
